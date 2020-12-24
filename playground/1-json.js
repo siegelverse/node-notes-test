@@ -1,12 +1,11 @@
-const book = {
-    title: 'The Stranger',
-    author: 'Albert Camus'
-}
+const fs = require('fs')
 
-//string json object
-const bookJSON = JSON.stringify(book)
-console.log(bookJSON)
 
-//json object parse
-const parsedData = JSON.parse(bookJSON)
-console.log(parsedData.author)
+const dataBuffer = fs.readFileSync('1-json.json')
+const jsonString = dataBuffer.toString()
+const user = JSON.parse(jsonString)
+user.name = 'Marcus'
+user.age = 26
+
+const userJSON = JSON.stringify(user)
+fs.writeFileSync('1-json.json', userJSON)
