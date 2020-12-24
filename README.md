@@ -1,0 +1,1 @@
+A Node CLI test
